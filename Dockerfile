@@ -30,4 +30,5 @@ COPY . .
 EXPOSE 7777
 
 # Démarrez l'application backend
-CMD ["pm2","start", "index.js","-f"]
+# CMD ["pm2","start", "index.js","-f"]
+CMD ["node", "index.js"]
