@@ -1,16 +1,17 @@
+let bcrypt = require('bcrypt');
 const Employeurs = require('../BackEnd/models/employeurModel');
+
 
 exports.logina = async function (req, res) {
   const email = req.body.email;
   const password = req.body.password;
 
   try {
-    // Vérifier si l'employeur existe dans la base de données
     const employer = await Employeurs.findOne({ email: email });
-
     if (employer) {
-      // Comparer le mot de passe saisi avec le mot de passe stocké dans la base de données
-      if (password === employer.password) {
+      const passwordMatch = await bcrypt.compare(password, employer.password);
+
+      if (passwordMatch) {
         // Mot de passe correct
         res.json({ status: 'success', data: 'Connexion réussie' });
       } else {
