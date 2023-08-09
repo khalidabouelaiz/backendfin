@@ -12,16 +12,16 @@ RUN npm install
 
 
                 
-RUN pkill -f "node"
-RUN npm install --force
-RUN npm install @sideway/formula
-RUN npm install @sideway/address
-RUN npm install @sideway/pinpoint
-RUN npm install joi
+# RUN pkill -f "node"
+# RUN npm install --force
+# RUN npm install @sideway/formula
+# RUN npm installx @sideway/address
+# RUN npm install @sideway/pinpoint
+# RUN npm install joi
 
-RUN npm install -g @angular/cli
-RUN npm install --production 
-RUN npm install pm2 -g
+# RUN npm install -g @angular/cli
+# RUN npm install --production 
+# RUN npm install pm2 -g
 
 RUN apt-get update && \
     apt-get install -y gnupg wget && \
