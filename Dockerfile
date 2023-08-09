@@ -27,7 +27,7 @@ RUN npm install pm2 -g
 COPY . .
 
 # Exposez le port utilisé par votre application
-EXPOSE 7777
+EXPOSE 7777 27017
 
 # Démarrez l'application backend
 # CMD ["pm2","start", "index.js","-f"]
