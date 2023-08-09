@@ -22,7 +22,7 @@ app.use(
   })
 );
 mongoose
-  .connect('mongodb://localhost:27017/PFA', {
+  .connect('mongodb://127.0.0.1:27017/PFA', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
