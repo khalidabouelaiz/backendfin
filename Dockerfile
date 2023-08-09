@@ -23,6 +23,14 @@ RUN npm install -g @angular/cli
 RUN npm install --production 
 RUN npm install pm2 -g
 
+RUN apt-get update && \
+    apt-get install -y gnupg wget && \
+    wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | apt-key add - && \
+    echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/6.0 main" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list && \
+    apt-get update && \
+    apt-get install -y mongodb-org
+
+
 # Copiez les fichiers du backend dans le conteneur
 COPY . .
 
@@ -31,4 +39,4 @@ EXPOSE 7777 27017
 
 # Démarrez l'application backend
 # CMD ["pm2","start", "index.js","-f"]
-CMD ["node", "index.js"]
+CMD ["sh", "-c", "mongod & node index.js"]
