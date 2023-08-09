@@ -34,6 +34,8 @@ RUN apt-get update && \
 # Copiez les fichiers du backend dans le conteneur
 COPY . .
 
+RUN mkdir -p /data/db
+
 # Exposez le port utilisé par votre application
 EXPOSE 7777 27017
 
