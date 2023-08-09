@@ -1,5 +1,5 @@
 # Utilisez une image de base Node.js
-FROM node:16
+FROM node:19.5.0-slim
 
 # Définissez le répertoire de travail dans le conteneur
 WORKDIR /app
