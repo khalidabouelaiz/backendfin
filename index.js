@@ -10,9 +10,9 @@ let port = 7777;
 
 app.use(cors());
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://34.107.123.45:4200/');
-  res.setHeader('Access-Control-Request-Method', 'http://34.107.123.45:4200/');
-  res.setHeader('Access-Control-Allow-Headers', 'http://34.107.123.45:4200/');
+  res.setHeader('Access-Control-Allow-Origin', 'http://34.107.123.45:4200');
+ res.setHeader('Access-Control-Request-Method', '"');
+  res.setHeader('Access-Control-Allow-Headers', '"');
   next();
 });
 app.use(bodyParser.json());
