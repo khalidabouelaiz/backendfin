@@ -10,7 +10,7 @@ let port = 7777;
 
 app.use(cors());
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://34.107.20.179:4200');
+  res.setHeader('Access-Control-Allow-Origin', 'http://thethiptopkhalidabouelaiz.eu:4200');
  res.setHeader('Access-Control-Request-Method', '"');
   res.setHeader('Access-Control-Allow-Headers', '"');
   next();
