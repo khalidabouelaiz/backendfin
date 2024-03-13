@@ -65,4 +65,6 @@ router.route('/employeurs').post(employeurController.new);
 router.route('/employeurss').get(employeurController.index);
 
 router.route('/getUserById/:id').get(userController.getUserById);
+router.route('/updatePrisStatus/:lotId').post(userController.updatePrisStatus);
+
 module.exports = router;

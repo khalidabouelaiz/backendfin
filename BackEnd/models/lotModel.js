@@ -27,6 +27,10 @@ const userShema = mongoose.Schema({
     minlenght: 3,
     maxlength: 50,
   },
+  pris: {
+    type: Boolean,
+    default: false, // Par défaut, le ticket n'est pas pris
+  },
   idUser: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   idTicket: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Ticket' }],
 });

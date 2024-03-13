@@ -192,6 +192,28 @@ exports.sendMail = async (req, res) => {
     message: 'sending',
   });
 };
+exports.updatePrisStatus = async (req, res) => {
+  const lotId = req.params.lotId;
+
+  try {
+    const updatedLot = await Lots.findByIdAndUpdate(
+      lotId,
+      { $set: { pris: true } }, // Mettez à jour le statut "pris" à true
+      { new: true }
+    );
+
+    if (updatedLot) {
+      res.json({ status: 1, message: 'Statut "pris" mis à jour avec succès' });
+    } else {
+      res.status(404).json({ status: 0, message: 'Lot non trouvé' });
+    }
+  } catch (error) {
+    console.error('Erreur lors de la mise à jour du statut "pris":', error);
+    res.status(500).json({
+      error: 'Une erreur est survenue lors de la mise à jour du statut "pris"',
+    });
+  }
+};
 exports.getAllLotsUsed = async (req, res) => {
   try {
     // Récupérer tous les utilisateurs avec les lots associés
@@ -211,6 +233,7 @@ exports.getAllLotsUsed = async (req, res) => {
           reception: lot.reception,
           idUser: lot.idUser,
           idTicket: lot.idTicket,
+          pris: lot.pris,
         });
       });
     });
